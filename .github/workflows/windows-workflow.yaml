@@ -57,6 +57,6 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         make_latest: true
-        token: ${{ secrets.GT }}
+        token: ${{ secrets.GH_PAT }}
         tag_name: nightly
         files: ${{ steps.strings.outputs.build-output-file }}
