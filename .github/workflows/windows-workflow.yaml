@@ -17,11 +17,11 @@ jobs:
       with:
         submodules: 'true'
 
-    - name: Checkout toolchain repository
+    - name: Checkout cmake-toolchain repository
       uses: actions/checkout@v4
       with:
-        repository: cmake-donizete/toolchain
-        path: ${{ github.workspace }}/toolchain
+        repository: ci-cd-donizete/cmake-toolchain
+        path: ${{ github.workspace }}/cmake-toolchain
 
     - name: Cleanup
       shell: bash
@@ -33,7 +33,7 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
         echo "build-output-file=${{ github.workspace }}/build/${{ inputs.name }}.exe" >> "$GITHUB_OUTPUT"
-        echo "cmake-toolchain=${{ github.workspace }}/toolchain/toolchain-mingw64.cmake" >> "$GITHUB_OUTPUT"
+        echo "cmake-toolchain=${{ github.workspace }}/cmake-toolchain/toolchain-mingw64.cmake" >> "$GITHUB_OUTPUT"
 
     - name: Configure CMake
       run: >
